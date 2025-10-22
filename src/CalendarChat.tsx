@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Calendar, Send, Clock, AlertCircle } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+
 
 export default function CalendarChat() {
   const [messages, setMessages] = useState([
@@ -178,7 +180,10 @@ export default function CalendarChat() {
                 {message.sender === 'system' && (
                   <AlertCircle className="w-4 h-4 inline mr-2" />
                 )}
-                <p className="text-sm leading-relaxed">{message.text}</p>
+                <ReactMarkdown className="prose prose-sm max-w-none text-sm leading-relaxed">
+                    {message.text}
+                </ReactMarkdown>
+
               </div>
               <div className={`flex items-center gap-1 mt-1 px-2 ${
                 message.sender === 'user' ? 'justify-end' : 
