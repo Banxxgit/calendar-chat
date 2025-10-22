@@ -61,7 +61,7 @@ export default function CalendarChat() {
       const data = await response.json();
       
       // Extract the assistant's response - adjust based on your n8n output structure
-      const assistantText = data.response || data.message || data.output || JSON.stringify(data);
+      const assistantText = data.reply || data.message || data.output || "No reply received";
 
       const assistantMessage = {
         id: Date.now() + 1,
