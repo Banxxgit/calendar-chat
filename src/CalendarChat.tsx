@@ -6,7 +6,6 @@ import { marked } from 'marked';
 
 
 
-
 export default function CalendarChat() {
   const [messages, setMessages] = useState([
     {
@@ -23,11 +22,6 @@ export default function CalendarChat() {
   const [sessionId] = useState(() => `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
   const [showConfig, setShowConfig] = useState(true);
   const messagesEndRef = useRef(null);
-
-  const renderMarkdown = (text: string) => {
-    const html = marked.parse(text);
-    return <div className="markdown-content" dangerouslySetInnerHTML={{ __html: html }} />;
-  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -189,7 +183,7 @@ export default function CalendarChat() {
                 {message.sender === 'system' && (
                   <AlertCircle className="w-4 h-4 inline mr-2" />
                 )}
-                {renderMarkdown(message.text)}
+                <p className="text-sm leading-relaxed">{message.text}</p>S
               </div>
               <div className={`flex items-center gap-1 mt-1 px-2 ${
                 message.sender === 'user' ? 'justify-end' : 
