@@ -180,10 +180,7 @@ export default function CalendarChat() {
                 {message.sender === 'system' && (
                   <AlertCircle className="w-4 h-4 inline mr-2" />
                 )}
-                <ReactMarkdown className="prose prose-sm max-w-none text-sm leading-relaxed">
-                    {message.text}
-                </ReactMarkdown>
-
+                <p className="text-sm leading-relaxed">{message.text}</p>S
               </div>
               <div className={`flex items-center gap-1 mt-1 px-2 ${
                 message.sender === 'user' ? 'justify-end' : 
