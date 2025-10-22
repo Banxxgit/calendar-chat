@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .markdown-content {
+      @apply leading-relaxed;
+    }
+    .markdown-content p {
+      @apply my-2;
+    }
+    .markdown-content strong {
+      @apply font-semibold;
+    }
+    .markdown-content a {
+      @apply text-indigo-600 underline hover:text-indigo-700;
+    }
+    .markdown-content ul,
+    .markdown-content ol {
+      @apply my-2 pl-6;
+    }
+    .markdown-content li {
+      @apply my-1;
+    }
+  }
